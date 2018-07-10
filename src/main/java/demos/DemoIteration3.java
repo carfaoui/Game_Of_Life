@@ -21,7 +21,7 @@ public class DemoIteration3 {
 		int evolutionCount = gol.getNumberOfEvolutions();
 
 		/** création de grille initial à partir des données de fichier data */
-		Boolean[][] grid1 = gol.createBooleanGridFromGridMatrix(rowCount, colCount, gol.getGrid());
+		boolean[][] grid1 = gol.createBooleanGridFromGridMatrix(rowCount, colCount, gol.getGrid());
 		gol.getGeneration(evolutionCount,rowCount, colCount, grid1);
 		
 		

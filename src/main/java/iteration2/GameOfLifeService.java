@@ -12,19 +12,19 @@ public interface GameOfLifeService {
 	 * Créer une grille à partir de grille type GridMatrix
 	 * GridMatrix : permet de creer une grille à partir de fichier data ( input file )
 	 * @param x : row ,y : col
-	 * @return Boolean[][]
+	 * @return boolean[][]
 	 */
-	Boolean[][] createNewgrid(int x, int y,GridMatrix grid);
+	boolean[][] createNewgrid(int x, int y,GridMatrix grid);
 
 	
 	/**
-	 * Dessiner une grille avec le format ( +,-) et à partir de grid de type Boolean [][] 
+	 * Dessiner une grille avec le format ( +,-) et à partir de grid de type boolean [][] 
 	 * @param generation nombre de géneration courante   
 	 * @param grid 
 	 *  
 	 * 
 	 */
-	String drawGrid(Boolean[][] grid,int generation);
+	String drawGrid(boolean[][] grid,int generation);
 	
 	/**
 	 * Vérifier toutes les  cellules de grille si elles sont mortes ou vivantes 
@@ -34,18 +34,18 @@ public interface GameOfLifeService {
 	 * @return boolean
 	 */
 
-	boolean isAlive(int row, int col, int x, int y, Boolean[][] grid);
+	boolean isAlive(int row, int col, int x, int y, boolean[][] grid);
 	/**
 	 * Créer une grille  à partir de : 
 	 *  grille inital + le nombre de ligne + nombre de colonne
 	 * @param row nombre de  ligne 
 	 * @param col nombre de colonne 
 	 * @param grid 
-	 * @return Boolean[][] 
+	 * @return boolean[][] 
 	 * 
 	 */
 
-	Boolean[][] nextGeneration(int x, int y, Boolean[][] grid);
+	boolean[][] nextGeneration(int x, int y, boolean[][] grid);
 	/**
 	 * Créer  et Dessiner N  génération à partir  d'une grille 
 	 *  + le nombre de ligne + nombre de colonne
@@ -54,10 +54,10 @@ public interface GameOfLifeService {
 	 * @param row nombre de  ligne 
 	 * @param col nombre de colonne 
 	 * @param grid 
-	 * @return Boolean[][] 
+	 * @return boolean[][] 
 	 * 
 	 */
 
-	void getGeneration(int generation, int x, int y, Boolean[][] grid);
+	void getGeneration(int generation, int x, int y, boolean[][] grid);
 
 }

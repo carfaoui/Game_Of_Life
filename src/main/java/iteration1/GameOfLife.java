@@ -110,17 +110,17 @@ public  class GameOfLife {
 	 * Créer une grille à partir de grille type GridMatrix
 	 * GridMatrix : permet de creer une grille à partir de fichier data ( input file )
 	 * @param x : row ,y : col
-	 * @return Boolean[][]
+	 * @return boolean[][]
 	 */
-	public Boolean[][] createInitgrid(int x, int y, GridMatrix grid) {
+	public boolean[][] createInitgrid(int x, int y, GridMatrix grid) {
 
-		Boolean[][] newgrid = new Boolean[x][y];
+		boolean[][] newgrid = new boolean[x][y];
 		int row = -1, col = 0;
 
 		for (GridArray gridArray : grid.getGridArray()) {
 			row++;
 			col = 0;
-			for (Boolean gridArray1 : gridArray.getArray()) {
+			for (boolean gridArray1 : gridArray.getArray()) {
 				newgrid[row][col] = gridArray1;
 				col++;
 			}
@@ -130,13 +130,13 @@ public  class GameOfLife {
 	}
 
 	/**
-	 * Dessiner une grille avec le format ( +,-) et à partir de grille de type Boolean [][] 
+	 * Dessiner une grille avec le format ( +,-) et à partir de grille de type boolean [][] 
 	 * @param evolutionCount nombre d'évolution de grille   
 	 * @param grid 
 	 *  
 	 * 
 	 */
-	public String drawGrid(Boolean[][] grid,int evolutionCount) {
+	public String drawGrid(boolean[][] grid,int evolutionCount) {
 		StringBuilder outputConsole = new StringBuilder();
 		System.out.println(OUTPOUT_CONSOLE+evolutionCount);
 		for (int row = 0; row < grid.length; row++) {
@@ -163,10 +163,10 @@ public  class GameOfLife {
 	 * Créer une grille à partir de grille type GridMatrix
 	 * GridMatrix : permet de creer une grille à partir de fichier data ( input file )
 	 * @param x : row ,y : col
-	 * @return Boolean[][]
+	 * @return boolean[][]
 	 */
-	public Boolean[][] createGridFromAnotherGrid(int x, int y,Boolean [][]grid){
-		Boolean[][] newgrid = new Boolean[x][y];
+	public boolean[][] createGridFromAnotherGrid(int x, int y,boolean [][]grid){
+		boolean[][] newgrid = new boolean[x][y];
 		for(int row = 0; row < newgrid.length; row++ ){
 			for(int col = 0; col < newgrid[row].length; col++ ){
 				newgrid[row][col] = isAlive(row, col,x,y,grid);
@@ -177,7 +177,7 @@ public  class GameOfLife {
 	}
 
 	// Calculer si une cellule individuelle doit être vivante dans la génération suivante.
-	public boolean isAlive(int row, int col,int x , int y,Boolean[][] grid){
+	public boolean isAlive(int row, int col,int x , int y,boolean[][] grid){
 		int liveCount = 0;
 		boolean cellCurrentlyAlive = grid[row][col];
 

@@ -23,15 +23,15 @@ public class GameOfLifeServiceImpl implements GameOfLifeService {
 	// Quelles cellules sont vivantes ou mortes dans la génération 0?
 	
 	@Override
-	public Boolean[][] createNewgrid(int x, int y, GridMatrix grid) {
+	public boolean[][] createNewgrid(int x, int y, GridMatrix grid) {
 
-		Boolean[][] newgrid = new Boolean[x][y];
+		boolean[][] newgrid = new boolean[x][y];
 		int row = -1, col = 0;
 
 		for (GridArray gridArray : grid.getGridArray()) {
 			row++;
 			col = 0;
-			for (Boolean gridArray1 : gridArray.array) {
+			for (boolean gridArray1 : gridArray.array) {
 				newgrid[row][col] = gridArray1;
 				col++;
 			}
@@ -42,7 +42,7 @@ public class GameOfLifeServiceImpl implements GameOfLifeService {
 
 
 	@Override
-	public String drawGrid(Boolean[][] grid,int generation) {
+	public String drawGrid(boolean[][] grid,int generation) {
 		StringBuilder outputConsole = new StringBuilder();
 		System.out.println(OUTPOUT_CONSOLE+generation);
 		for (int row = 0; row < grid.length; row++) {
@@ -66,7 +66,7 @@ public class GameOfLifeServiceImpl implements GameOfLifeService {
 	}
 
 	@Override
-	public boolean isAlive(int row, int col, int x, int y, Boolean[][] grid) {
+	public boolean isAlive(int row, int col, int x, int y, boolean[][] grid) {
 
 		int liveCount = 0;
 		boolean cellCurrentlyAlive = grid[row][col];
@@ -101,8 +101,8 @@ public class GameOfLifeServiceImpl implements GameOfLifeService {
 	}
 
 	@Override
-	public Boolean[][] nextGeneration(int x, int y, Boolean[][] grid) {
-		Boolean[][] newgrid = new Boolean[x][y];
+	public boolean[][] nextGeneration(int x, int y, boolean[][] grid) {
+		boolean[][] newgrid = new boolean[x][y];
 		for (int row = 0; row < newgrid.length; row++) {
 			for (int col = 0; col < newgrid[row].length; col++) {
 				newgrid[row][col] = isAlive(row, col, x, y, grid);
@@ -118,9 +118,9 @@ public class GameOfLifeServiceImpl implements GameOfLifeService {
 	// suivante.
 
 	@Override
-	public void getGeneration(int generation, int x, int y, Boolean[][] grid) {
+	public void getGeneration(int generation, int x, int y, boolean[][] grid) {
 		drawGrid(grid, 0);
-		Boolean[][] newgrid = nextGeneration(x, y, grid);
+		boolean[][] newgrid = nextGeneration(x, y, grid);
 		drawGrid(newgrid, 1);
 		for (int i = 2; i <= generation; i++) {
 			newgrid = nextGeneration(x, y, newgrid);

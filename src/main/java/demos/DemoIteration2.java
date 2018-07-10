@@ -22,7 +22,7 @@ public class DemoIteration2 {
 		int evolutionCount = gol.getNumberOfEvolutions();
 
 		/** création de grille initial à partir des données de fichier data */
-		Boolean[][] grid = gol.createNewgrid(rowCount, colCount, gol.getGrid());
+		boolean[][] grid = gol.createNewgrid(rowCount, colCount, gol.getGrid());
 		gol.nextGeneration(rowCount, colCount, grid);
 
 		/** simulateur de grille de dimension 3x3 Itération 2 */

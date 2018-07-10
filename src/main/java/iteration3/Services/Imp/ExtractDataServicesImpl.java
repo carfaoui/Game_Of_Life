@@ -87,7 +87,7 @@ public class ExtractDataServicesImpl implements ExtractDataServices {
 	@Override
 	public GridArray setRow(String[] s) {
 		GridArray gridArray = new GridArray();
-		for (int i = 1; i < s.length; i++) {
+		for (int i = 0; i < s.length; i++) {
 			if (s[i].equals(ALIVE)) {
 				gridArray.getArray().add(true);
 			} else {
